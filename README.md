@@ -39,7 +39,7 @@ Finalmente, identificar las ventajas que surgen de su uso.
 #### Arquitectura de la App
 La app está conformada por tres módulos principales: una aplicación React para manejar la interfaz web y permitir a los usuarios enviar solicitudes al servidor; una API principal encargada de manejar (crear, actualizar, proporcionar y remover) la información de los usuarios, clientes y procesos; y finalmente una API encargada de manejar las solicitudes para la ejecución de procesos, y de asignar los procesos a un grupo de *threads* trabajadores.
 
-![Arquitectura de la App](/home/mauricio/Documents/2022-1/Cloud/Proyecto_Cloud/Diagramas/arquitectura.png  "Arquitectura de la App")
+![Arquitectura de la App](/Diagramas/arquitectura.png  "Arquitectura de la App")
 
 #### Justificación
 
