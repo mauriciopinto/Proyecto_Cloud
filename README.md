@@ -51,11 +51,15 @@ La idea de utilizar esta aplicación previa es incorporar los conceptos de cloud
 
 A continuación se detallarán los conceptos mencionados en la sección [Objetivos](#objetivos) con una explicación de cómo serán implementados por la App.
 
-- **Escalabilidad y Monitoreo:**
-- **Multi-Tenancy:**
-- **Private Cloud:**
-- **Load Balancing:**
-- **Containerization:**
+- **Escalabilidad y Monitoreo:** Se utilizará un sistema de monitoreo para obtener información sobre el uso de recursos, la latencia, cantidad de solicitudes, etc. De esta manera, se puede escalar el servicio (*containers*) de ser necesario, equilibrar las cargas e identificar anomalías.
+
+- **Multi-Tenancy:** La aplicación es un servicio web que será utilizado por múltiples usuarios simultáneamente, quienes utilizarán sus recursos de manera compartida. De esta manera, podemos aprovechar las capacidades de un sistema *multi-tenant* para satisfacer estas necesidades, implementando un servidor centralizado capaz de atender múltiples solicitudes junto con un grupo de containers a los cuáles se les asignará tareas creadas por los usuarios.
+
+- **Private Cloud:** Dado que el servicio estará disponible únicamente para los usuarios creados por un cliente, podemos aprovechar para implementarlo dentro de una nube privada para así evitar tráfico no deseado al sistema.
+
+- **Load Balancing:** Dado que el rendimiento es un punto importante del servicio, queremos que exista un balance de cargas de trabajo entre containers
+
+- **Containerization:** Aprovechando las ventajas de *containerization*, podemos crear imágenes de cada componente para simplificar su *deployment* y sus actualizaciones. Por otro lado, si deseamos agregar otro *container* trabajador, es tan simple como contruirlo desde la misma imagen, y como estos no hacen más que ejecutar procesos específicos podemos reducir sus requerimientos y su tamaño lo máximo posible. Si se desea agregar un nuevo proceso, se genera una nueva imagen en base a la anterior y se actualiza los demás containers.
 
 ## Implementación
 
