@@ -1,26 +1,63 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: proyecto-cloud
+  name: proyecto-cloud-front-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: proyecto-cloud
+      app: proyecto-cloud-front
   template:
     metadata:
       labels:
-        app: proyecto-cloud
+        app: proyecto-cloud-front
     spec:
       containers:
       - name: frontend
         image: condata-frontend:latest
-        ports:
-        - containerPort: 3000
         imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: proyecto-cloud-front-svc
+spec:
+  type: NodePort
+  selector:
+    app: proyecto-cloud-front
+  ports:
+    - name: proyecto-cloud-front-pt
+      port: 3000
+      targetPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proyecto-cloud-back-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proyecto-cloud-back
+  template:
+    metadata:
+      labels:
+        app: proyecto-cloud-back
+    spec:
+      containers:
       - name: backend
         image: condata-backend:latest
-        ports:
-        - containerPort: 8000
         imagePullPolicy: Never
-
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: proyecto-cloud-back-svc
+spec:
+  type: NodePort
+  selector:
+    app: proyecto-cloud-back
+  ports:
+    - name: proyecto-cloud-back-pt
+      port: 8000
+      targetPort: 8000
