@@ -63,4 +63,53 @@ A continuación se detallarán los conceptos mencionados en la sección [Objetiv
 
 ## Implementación
 
-TODO
+A continuación se presentan detalles de la implementación
+
+#### Herramientas utilizadas
+
+- Minikube (Deployment)
+- Docker (Containerization)
+
+#### Detalles
+
+Se crearon dos containers centrales para el funcionamiento de la app, uno para el *frontend* y uno para el *backend*. Los `Dockerfile`para ambos estan incluidos en sus respectivas carpetas. Se pueden generar las imágenes con los siguientes comandos:
+
+	# Dado que las imágenes no están publicadas en DockerHub, se debe ejecutar el siguiente comando antes de construirlas para que estas estén disponibles en el ambiente de minikube.
+	eval $(minikube -p minikube docker-env)
+
+	# Para crear la imagen del Backend
+	cd src/backend/
+	docker build -t condata-backend .
+	
+	# Para crear la imagen del Frontend
+	cd src/frontend/
+	docker build -t condata-frontend .
+
+Una vez generadas las imágenes, se genera el k8s cluster con el siguiente comando:
+
+	minikube start
+
+Ahora, ya podemos utilizar `kubectl` para manejar el cluster. El archivo `deployment.yaml` contiene los detalles del *deployment* que generará los pods de *backend* y *frontend* correspondientes. Para generar estos pods, ejecutamos:
+
+	kubectl apply -f deployment.yaml
+	
+Una vez creados los *deployments* y servicios, podemos acceder a los endpoints accediendo a la URL del cluster en el puerto de cada servicio:
+
+	minikube service --all
+	
+	# El resultado será algo similar a esto:
+	#|-----------|--------------------------|------------------------------|-----------------------------|
+	#| NAMESPACE |           NAME           |         TARGET PORT          |             URL             |
+	#|-----------|--------------------------|------------------------------|-----------------------------|
+	#| default   | kubernetes               | No node port                 |
+	#| default   | proyecto-cloud-back-svc  | proyecto-cloud-back-pt/8000  | http://192.168.59.100:31478 |
+	#| default   | proyecto-cloud-front-svc | proyecto-cloud-front-pt/3000 | http://192.168.59.100:30806 |
+
+Para acceder a los servicios, ir al navegador e ingresar URL.
+
+#### Faltante
+
+- Verificar funcionamiento de Backend (Django no se expone de manera correcta)
+- Crear containers para ejecución de trabajos
+- Implementar monitoreo
+- Implementar una nibe privada para acceso al backend
