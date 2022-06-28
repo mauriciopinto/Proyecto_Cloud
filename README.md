@@ -112,4 +112,4 @@ Para acceder a los servicios, ir al navegador e ingresar URL.
 - Verificar funcionamiento de Backend (Django no se expone de manera correcta)
 - Crear containers para ejecución de trabajos
 - Implementar monitoreo
-- Implementar una nibe privada para acceso al backend
+- Implementar una nube privada para acceso al backend
