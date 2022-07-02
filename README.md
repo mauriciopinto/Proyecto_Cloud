@@ -109,7 +109,6 @@ Para acceder a los servicios, ir al navegador e ingresar URL.
 
 #### Faltante
 
-- Verificar funcionamiento de Backend (Django no se expone de manera correcta)
 - Crear containers para ejecución de trabajos
 - Implementar monitoreo
 - Implementar una nube privada para acceso al backend
