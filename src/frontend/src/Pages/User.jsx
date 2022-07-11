@@ -6,7 +6,7 @@ import { getExecutedJobsByUser } from '../Services/Account/Job'
 import { RegularTable } from '../Components/Table'
 import NavBar from '../Components/NavBar'
 
-let CONDATA_SERVER_JOB_OUPUT = "http://localhost:8000/job/output"
+let CONDATA_SERVER_JOB_OUPUT = "http://192.168.59.100:32647/job/output"
 
 let navBarElements = [
     {text: "Inicio", link: "/user"},

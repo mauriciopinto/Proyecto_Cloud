@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: condata-frontend:latest
-        imagePullPolicy: Never
+        image: mauriciopinto/condata-frontend:latest
 ---
 apiVersion: v1
 kind: Service
@@ -29,6 +28,7 @@ spec:
     - name: proyecto-cloud-front-pt
       port: 3000
       targetPort: 3000
+      nodePort: 30671
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -46,8 +46,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: condata-backend:latest
-        imagePullPolicy: Never
+        image: mauriciopinto/condata-backend:latest
 ---
 apiVersion: v1
 kind: Service
@@ -61,3 +60,4 @@ spec:
     - name: proyecto-cloud-back-pt
       port: 8000
       targetPort: 8000
+      nodePort: 32647
