@@ -69,6 +69,7 @@ A continuación se presentan detalles de la implementación
 
 - Minikube (Deployment)
 - Docker (Containerization)
+- Prometheus (Monitoreo)
 
 #### Detalles
 
@@ -107,8 +108,15 @@ Una vez creados los *deployments* y servicios, podemos acceder a los endpoints a
 
 Para acceder a los servicios, ir al navegador e ingresar URL.
 
+#### Monitoreo
+Se utilizó **Prometheus** con las configuraciones encontradas en el repositorio de [Kube-Prometheus](https://github.com/prometheus-operator/kube-prometheus) para generar las instancias de monitoreo. Se crea un namespace llamado `monitoring` donde se ejecutan todos los *pods* necesarios para un monitoreo básico. Luego podemos acceder al dashboard ejecutando:
+
+	kubectl -n monitoring port-forward svc/prometheus-operated 9090
+
+En el navegador, ingresar a `http://localhost:9090` para acceder al operador.
+
+
 #### Faltante
 
 - Crear containers para ejecución de trabajos
-- Implementar monitoreo
-- Implementar una nube privada para acceso al backend
+
