@@ -20,5 +20,6 @@ from django.urls.conf import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('Main_API.urls')),
-    path('job/', include('JobExecuter.urls'))
+    path('job/', include('JobExecuter.urls')),
+    path('', include('django_prometheus.urls'))
 ]

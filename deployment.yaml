@@ -15,6 +15,13 @@ spec:
       containers:
       - name: frontend
         image: mauriciopinto/condata-frontend:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "512M"
+          requests:
+            cpu: "1000m"
+            memory: "512M"
 ---
 apiVersion: v1
 kind: Service
@@ -47,6 +54,14 @@ spec:
       containers:
       - name: backend
         image: mauriciopinto/condata-backend:latest
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "512M"
+          requests:
+            cpu: "1000m"
+            memory: "512M"
+
 ---
 apiVersion: v1
 kind: Service
