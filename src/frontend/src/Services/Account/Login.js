@@ -1,6 +1,6 @@
 import axios from "axios"
 
-let CONDATA_API_URL = "http://192.168.59.100:32647/api/"
+let CONDATA_API_URL = "http://192.168.59.117:32647/api/"
 
 export function postLogin (event, renderResponse) {
     

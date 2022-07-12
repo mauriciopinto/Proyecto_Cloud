@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-psdw-guqar#&7b+l7n(y0y!k+h$sn)cfg1l*jdxg(u9_hggk9j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.59.100", "localhost"]
+ALLOWED_HOSTS = ["192.168.59.117", "localhost"]
 
 
 # Application definition
@@ -136,7 +136,7 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "http://192.168.59.100:30671"
+    "http://192.168.59.117:30671"
 ]
 
 TIME_ZONE = 'America/Lima'
