@@ -18,7 +18,6 @@ Los objetivos principales de este proyecto están relacionados al uso de concept
 
 - Escalabilidad y Monitoreo
 - Multi-Tenancy
-- Private Cloud
 - Load Balancing
 - Containerization (Docker, Kubernetes)
 
@@ -114,9 +113,4 @@ Se utilizó **Prometheus** con las configuraciones encontradas en el repositorio
 	kubectl -n monitoring port-forward svc/prometheus-operated 9090
 
 En el navegador, ingresar a `http://localhost:9090` para acceder al operador.
-
-
-#### Faltante
-
-- Crear containers para ejecución de trabajos
 
