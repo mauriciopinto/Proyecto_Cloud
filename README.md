@@ -114,3 +114,4 @@ Se utilizó **Prometheus** con las configuraciones encontradas en el repositorio
 
 En el navegador, ingresar a `http://localhost:9090` para acceder al operador.
 
+#### El archivo `demo.mp4` contiene una demostración del uso de la aplicación
